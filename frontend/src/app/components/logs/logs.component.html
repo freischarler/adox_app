@@ -1,0 +1,24 @@
+<table class="table table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Temperatura</th>
+        <th scope="col">Humedad</th>
+        <th scope="col">Transmision</th>
+        <th scope="col">Recepcion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of values">
+        <th scope="row">{{item.id_secuencia}}</th>
+        <td>{{ item.temperatura}}</td>
+        <td>{{ item.humedad}}</td>
+        <td>{{ item.time_transmision | date:'dd/MM/yy HH:mm:ss' }}</td>
+        <td>{{ item.time_recepcion | date:'dd/MM/yy HH:mm:ss' }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+<a [routerLink]="['/tracking']" class="btn btn-outline-danger btn-block">
+    Regresar
+</a>

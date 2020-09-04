@@ -1,0 +1,34 @@
+npm install -g angular-cli
+ng new client --routing  
+npm install --save express body-parser
+
+ng g s services/auth   //servicio auth
+ng g i models/jwt-response  //intefase respuesta del server
+ng g i models/user  //interface para user
+
+export interface User {
+    id: number,
+    name: string,
+    email: string,
+    password: string
+}
+
+export interface JwtResponseI {
+    dataUser:{
+        id: number,
+        name: string,
+        email: string,
+        accessToken: string,
+        expiresIn: string
+    }
+}
+
+FORMULARIO LOGIN:
+fuente: https://codepen.io/miroot/pen/qwIgC
+
+
+webtoken:
+npm i jsonwebtoken
+npm i @types/jsonwebtoken
+SECRET KEY SE DEBE GUARDAR EN UNA VARIABLE DE ENTORNO
+
