@@ -51,7 +51,7 @@ exports.signin = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
                         subject: user.name
                     });
                     console.log("user logueado");
-                    res.status(200).send({ token, rol: PWD[0].rol });
+                    res.status(200).send({ token, rol: PWD[0].rol, id_user: PWD[0].id_user });
                 }
                 else {
                     console.log("datos invalidos");

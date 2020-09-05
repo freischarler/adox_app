@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../services/auth.service'
 import { Route } from '@angular/compiler/src/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { UserI } from 'src/app/models/user';
 
 @Component({
   selector: 'app-navbar',
@@ -12,35 +14,42 @@ import { Router } from '@angular/router';
 
 export class NavbarComponent implements OnInit {
 
-  isLoggedIn = false;
+  isLoggedIn: Observable<boolean>;
+  //userLogged: Observable<string>;
 
   constructor( private _authService : AuthService,
                 private _router: Router) {
-
+                  
                 }
 
   ngOnInit(): void {
-    /*FALTA CONFIGURAR EL TIEMPO DE TOKEN
-    if (this._authService.getToken()) {
-      this.isLoggedIn = true;
-    }*/
+    
+    this.isLoggedIn = this._authService.isLoggedIn;
+    //this.userLogged=this._authService.UserType;
+    //console.log(this.userLogged);
+    
   }
 
+  
+
+  public get currentUser() {
+    return this._authService.isAuthorized();
+  }
 
   public logOut(){
     console.log('log out');
     
     this._authService.logout();
-    this._router.navigate(['/auth/login']);
+    this.isLoggedIn = this._authService.isLoggedIn;
+    //this._router.navigate(['/auth/login']);
 
-    this.isLoggedIn = false;
     
     //this.reloadPage();
   }
 
-  reloadPage() {
-    
+  /*reloadPage() {
     window.location.reload();
-    
-  }
+  }*/
+
+
 }

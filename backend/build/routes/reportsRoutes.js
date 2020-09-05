@@ -13,7 +13,7 @@ class ReportsRoutes {
     }
     config() {
         //this.router.get('/', TokenValidation, logController.list);
-        //this.router.get('/:id', reportsController.getLogById)
+        this.router.get('/:id', verifyToken_1.TokenValidation, reportsController_1.default.getLogById);
         this.router.get('/', verifyToken_1.TokenValidation, reportsController_1.default.list); //insertamos logs
         //this.router.delete('/:id',reportsController.delete);
         //this.router.put('/:id',reportsController.update);

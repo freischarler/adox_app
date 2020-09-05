@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
   rol= '';
 
   usuario:UserI={
+    id_usuario: 0,
     name: '',
     password: ''
   }
@@ -36,10 +37,10 @@ export class LoginComponent implements OnInit {
     if (this._authService.getToken()) {
       this.isLoggedIn = true;
       //this.roles = this._authService.getUser().roles;
-      this.rol=this._authService.getUser();
-    
-      console.log('rol asignado');
-      console.log(this.rol);
+      this.rol=this._authService.getUserKey();
+      this._authService.setUser(this.usuario);
+      console.log('rol asignado'+this.rol);
+      //console.log(this.rol);
       this._router.navigateByUrl('/');
     }
   }
@@ -58,15 +59,16 @@ export class LoginComponent implements OnInit {
           //obtenemos el token y lo guardamos en el local Storge
           console.log(res);
           //localStorage.setItem('token',res.token);
+
           this._authService.setSession(res);
           
-          this._router.navigateByUrl('/');
-          //this._router.navigate(['/home']);
+          
+          this._router.navigate(['/home']);
 
           this.isLoginFailed = false;
           this.isLoggedIn = true;
           //this.roles = this.tokenStorage.getUser().roles;
-          this.reloadPage();
+          //this.reloadPage();
 
         },
         err => console.log(err)

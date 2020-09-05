@@ -52,7 +52,7 @@ export const signin = async (req: Request, res: Response) => {
                     });
                 
                     console.log("user logueado");
-                    res.status(200).send({token, rol: PWD[0].rol});    
+                    res.status(200).send({token, rol: PWD[0].rol, id_user: PWD[0].id_user});    
                 }
                 else
                 {

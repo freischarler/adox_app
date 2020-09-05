@@ -6,4 +6,5 @@ export interface ViajeI {
     humedad_max: string;
     humedad_min: string;
     string: string;
+    user_id: number;
 }

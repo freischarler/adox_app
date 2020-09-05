@@ -19,5 +19,10 @@ export class ViajeService {
     //console.log(API_URL + '/values/'+idx);
     return this.http.get<ViajeI[]>(API_URL_TEST + '/api/reports');
   }
+
+  getViajesByid( idx: number ): Observable<ViajeI[]>{
+    //console.log(API_URL + '/values/'+idx);
+    return this.http.get<ViajeI[]>(API_URL_TEST + '/api/reports/'+idx);
+  }
   
 }

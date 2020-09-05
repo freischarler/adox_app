@@ -18,7 +18,7 @@ class AuthRoutes{
         //this.router.get('/',AuthController.index);
         //this.router.post('/signup',signup);
         this.router.post('/signin',signin);
-        this.router.get('/profile', TokenValidation ,profile);
+        //this.router.get('/profile', TokenValidation ,profile);
     }
 }
 
