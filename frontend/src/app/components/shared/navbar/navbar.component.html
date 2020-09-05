@@ -1,10 +1,13 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#"><b>ADOX APP</b></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
   
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    
+
+  
+    <div  class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
 
 
@@ -45,7 +48,20 @@
         <input class="form-control mr-sm-2" type="search" placeholder="Buscar por id" aria-label="Search">
         <button class="btn btn-outline-light my-2 my-sm-0 button-container" type="submit">Buscar</button>
 
-        <button class="btn btn-outline-danger my-2 my-sm-0 " type="submit"><b>Log out</b></button>
+        
       </form>
+      <div>
+        <button (click)="logOut()" 
+                type="button" 
+                class="btn btn-outline-danger my-2 my-sm-0">
+                <b>Log out</b>
+        </button>
+      </div>
+
     </div>
+      
+  
   </nav>
+
+
+

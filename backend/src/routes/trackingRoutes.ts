@@ -1,5 +1,6 @@
 import {Router} from 'express';
 import trackingController from '../controllers/trackingController'
+import { TokenValidation } from '../libs/verifyToken'
 
 class trackingRoutes{
     
@@ -10,8 +11,8 @@ class trackingRoutes{
     }
 
     config(): void{
-        this.router.get('/',trackingController.list);
-        this.router.get('/:id',trackingController.getValue)
+        this.router.get('/', TokenValidation, trackingController.list);
+        this.router.get('/:id', TokenValidation,trackingController.getValue)
         this.router.post('/', trackingController.create);   //insertamos lugares
         this.router.delete('/:id',trackingController.delete);
         this.router.put('/:id',trackingController.update);

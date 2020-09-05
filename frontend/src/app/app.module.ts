@@ -11,11 +11,13 @@ import { TrackingComponent } from './components/tracking/tracking.component';
 import { AboutComponent } from './components/about/about.component';
 import { ReportsComponent } from './components/reports/reports.component';
 import { LogsComponent } from './components/logs/logs.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpInterceptor, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
 import { ViajeService } from './services/viaje.service';
+import { TokenInterceptorService } from './services/token-interceptor.service';
+import { AuthGuard } from './services/authGuard';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,12 @@ import { ViajeService } from './services/viaje.service';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [ AuthService, UserService, ViajeService],
+  providers: [ AuthService, AuthGuard ,UserService, ViajeService, 
+    {
+      provide : HTTP_INTERCEPTORS,
+      useClass : TokenInterceptorService,
+      multi : true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

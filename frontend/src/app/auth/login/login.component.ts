@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit {
     
       console.log('rol asignado');
       console.log(this.rol);
+      this._router.navigateByUrl('/');
     }
   }
 
@@ -65,7 +66,7 @@ export class LoginComponent implements OnInit {
           this.isLoginFailed = false;
           this.isLoggedIn = true;
           //this.roles = this.tokenStorage.getUser().roles;
-          //this.reloadPage();
+          this.reloadPage();
 
         },
         err => console.log(err)

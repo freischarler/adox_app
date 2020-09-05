@@ -13,10 +13,10 @@ class LogRoutes{
 
     config(): void{
         //this.router.get('/', TokenValidation, logController.list);
-        this.router.get('/:id', logController.getLogById)
-        this.router.post('/', logController.create);   //insertamos logs
-        this.router.delete('/:id',logController.delete);
-        this.router.put('/:id',logController.update);
+        this.router.get('/:id', TokenValidation, logController.getLogById)
+        //this.router.post('/', logController.create);   //insertamos logs
+        //this.router.delete('/:id',logController.delete);
+        //this.router.put('/:id',logController.update);
     }
 }
 

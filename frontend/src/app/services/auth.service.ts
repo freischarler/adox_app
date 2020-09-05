@@ -12,6 +12,7 @@ const httpOptions = {
 @Injectable()
 export class AuthService {
 
+  private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   private urlApi="http://localhost:3000";
 
@@ -51,11 +52,16 @@ export class AuthService {
   }
 
   public isLoggedIn(){
+    return this.loggedIn.asObservable();
+  }
+
+  public isExpiredIn(){
     return moment().isBefore(this.getExpiration());
   }
 
   isLoggedOut(){
-    return !this.isLoggedIn();
+    //return !this.isLoggedIn();
+    return !this.isExpiredIn();
   }
 
   getExpiration(){
