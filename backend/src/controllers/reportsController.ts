@@ -22,6 +22,18 @@ class ReportsController {
             console.log(result);
         });
     }
+
+    public async getLogByIdViaje (req: Request,res: Response){
+        
+        const { id } = req.params;
+        //console.log ('ID RECIBIDO');
+
+        pool.query('select * from log_viaje where viaje_id = ?',[id], function(err, result, fields) {
+            if (err) throw err;
+            res.json(result);
+            console.log(result);
+        });
+    }
 }
 
 const reportsController=new ReportsController();

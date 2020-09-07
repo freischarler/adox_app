@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UserI } from '../models/user';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 import * as moment from "moment";
 import { Router } from '@angular/router';
-import { localizedString } from '@angular/compiler/src/output/output_ast';
+
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -29,7 +29,6 @@ export class AuthService {
 
   login ( user : UserI ){
     this.user=user;
-    
     user=JSON.parse(JSON.stringify(user));
     return this.httpClient.post<any>(this.urlApi+`/api/auth/signin`, user);
     /*return this.httpClient.post<any>(this.urlApi+`/api/auth/signin`, user).pipe(tap(
@@ -89,16 +88,11 @@ export class AuthService {
     return this.loggedIn.asObservable();
   }
 
-  /*get UserType(){
-    return this.userTEST.asObservable();
-  }*/
-
   public isExpiredIn(){
     return moment().isBefore(this.getExpiration());
   }
 
   isLoggedOut(){
-    //return !this.isLoggedIn();
     return !this.isExpiredIn();
   }
 

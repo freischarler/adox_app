@@ -36,6 +36,18 @@ class ReportsController {
             });
         });
     }
+    getLogByIdViaje(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { id } = req.params;
+            //console.log ('ID RECIBIDO');
+            database_1.default.query('select * from log_viaje where viaje_id = ?', [id], function (err, result, fields) {
+                if (err)
+                    throw err;
+                res.json(result);
+                console.log(result);
+            });
+        });
+    }
 }
 const reportsController = new ReportsController();
 exports.default = reportsController;

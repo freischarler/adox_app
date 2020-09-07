@@ -18,10 +18,11 @@ export class LogsComponent implements OnInit {
   constructor( private activatedRoute: ActivatedRoute, 
     private _trackingService:TrackingService, private _logsService:LogsService
     ) {
+
     this.activatedRoute.params.subscribe( params =>{
-      //console.log('BANDERA1'+params);
       this.truck=this._trackingService.getTruck( params ['id']);
     });
+    
     //console.log(this.place);
     //this.values.reverse();
   }

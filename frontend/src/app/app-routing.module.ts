@@ -9,6 +9,7 @@ import { LogsComponent } from './components/logs/logs.component';
 
 import { AuthGuard } from './services/authGuard';
 import { LoginComponent } from './auth/login/login.component';
+import { ExportpdfComponent } from './components/exportpdf/exportpdf.component';
 
 const routes: Routes = [
 
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'tracking', component: TrackingComponent, canActivate: [AuthGuard]},
   { path: 'logs/:id', component: LogsComponent, canActivate: [AuthGuard] },
   { path: 'reports', component: ReportsComponent, canActivate: [AuthGuard] },
+  { path: 'reports/:id', component: ExportpdfComponent, canActivate: [AuthGuard] },
   { path: 'about', component: AboutComponent, canActivate: [AuthGuard] },
   
   //{ path: 'auth',loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)}, //el tutorial marcaba error, solucion: angular.io/guide/lazy-loading-ngmodules

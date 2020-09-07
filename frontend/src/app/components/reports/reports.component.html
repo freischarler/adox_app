@@ -1,10 +1,13 @@
+
+<H1>Viajes: <small>Parametros</small></H1>
+<hr>
 <div class="table-responsive">
   <!--Table-->
   <table class="table table-bordered">
 <!--table class="table table-bordered" -->
     <thead class="thead-dark">
       <tr>
-        <th scope="col">#</th>
+        <th scope="col">id</th>
         <th scope="col">T max</th>
         <th scope="col">T min</th>
         <th scope="col">H max</th>
@@ -14,9 +17,9 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of viajes">
+      <tr  *ngFor="let item of viajes; let i = index">
         <th scope="row">{{ item.viaje_id }}</th>
-        <td>{{ item.temperatura_max }}</td>
+        <td >{{ item.temperatura_max }}</td>
         <td>{{ item.temperatura_min }}</td>
         <td>{{ item.humedad_max }}</td>
         <td>{{ item.humedad_min }}</td>
@@ -26,7 +29,7 @@
                   type="button" class="btn btn-outline-danger btn-block">
                   Ver
             </button>
-            
+          </td> 
       </tr>
     </tbody>
   </table>

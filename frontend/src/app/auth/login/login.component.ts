@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
       //this.roles = this._authService.getUser().roles;
       this.rol=this._authService.getUserKey();
       this._authService.setUser(this.usuario);
-      console.log('rol asignado'+this.rol);
+      //console.log('rol asignado'+this.rol);
       //console.log(this.rol);
       this._router.navigateByUrl('/');
     }

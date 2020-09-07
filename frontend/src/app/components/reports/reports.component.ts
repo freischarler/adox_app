@@ -3,6 +3,7 @@ import { ViajeService } from '../../services/viaje.service';
 
 import { ViajeI } from '../../models/viaje';
 import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reports',
@@ -14,7 +15,8 @@ export class ReportsComponent implements OnInit {
   viajes:ViajeI[]=[];
   userLogged:String;
 
-  constructor( private _viajeService : ViajeService,
+  constructor( private _router : Router,
+                private _viajeService : ViajeService,
                 private _authService : AuthService ) { }
 
   ngOnInit(): void {
@@ -30,14 +32,20 @@ export class ReportsComponent implements OnInit {
         })
     }
     else{
-      this._viajeService.getViajesByid(2)
+      let id_user=localStorage.getItem('id_user');
+      this._viajeService.getViajesByid(Number(id_user))
         .subscribe(
         (res)=>{
-        //this.values=JSON.stringify(res);
+
         this.viajes=res;
         console.log(res);
         })
     }
   
   }
+
+  verLogs( idx:number ){
+    this._router.navigate(['/reports/',this.viajes[idx].viaje_id]);
+  }
+
 }

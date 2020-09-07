@@ -18,10 +18,11 @@ import { UserService } from './services/user.service';
 import { ViajeService } from './services/viaje.service';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { AuthGuard } from './services/authGuard';
+import { ExportpdfComponent } from './components/exportpdf/exportpdf.component';
 
 @NgModule({
   declarations: [
-    AppComponent, LoginComponent, HomeComponent, NavbarComponent, TrackingComponent, AboutComponent, ReportsComponent, LogsComponent
+    AppComponent, LoginComponent, HomeComponent, NavbarComponent, TrackingComponent, AboutComponent, ReportsComponent, LogsComponent, ExportpdfComponent
   ],
   imports: [
     BrowserModule,

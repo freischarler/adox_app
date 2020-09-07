@@ -14,6 +14,7 @@ class ReportsRoutes{
     config(): void{
         //this.router.get('/', TokenValidation, logController.list);
         this.router.get('/:id', TokenValidation, reportsController.getLogById)
+        this.router.get('/viaje/:id', TokenValidation, reportsController.getLogByIdViaje)
         this.router.get('/', TokenValidation, reportsController.list);   //insertamos logs
         //this.router.delete('/:id',reportsController.delete);
         //this.router.put('/:id',reportsController.update);
